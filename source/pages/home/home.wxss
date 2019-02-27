@@ -1,0 +1,36 @@
+page {
+  background: #f6f6f6;
+}
+
+.top {
+  border-bottom: 4rpx solid white;
+}
+
+.top_title {
+  width: 100%;
+  color: #6a6a6a;
+  background: #fff;
+}
+
+.to-white {
+  color: #e51c23;
+}
+
+.bg-primary {
+  background: #e51c23;
+  margin-top: 5rpx;
+}
+
+.content {
+  width: 682rpx;
+  height: 380rpx;
+  background: #fff;
+  border-radius: 20rpx;
+}
+
+
+.time {
+  height: 100rpx;
+  border-top: 2rpx solid #bbb;
+  color: #000;
+}
