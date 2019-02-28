@@ -1,18 +1,41 @@
 {
-  "pages":[
+  "pages": [
     "pages/home/home",
     "pages/auth/auth",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/details/details",
+    "pages/receiptDetails/receiptDetails",
+    "pages/pickUpGoodsDetails/pickUpGoodsDetails",
+    "pages/transportDetails/transportDetails",
+    "pages/my/my",
+    "pages/orderList/orderList"
   ],
-   "permission": {
+  "permission": {
     "scope.userLocation": {
       "desc": "你的位置信息将用于小程序位置接口的效果展示"
     }
   },
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "enablePullDownRefresh": true,
-    "navigationBarBackgroundColor": "white",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#E51C23",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#bfbfbf",
+    "selectedColor": "#4C556E",
+    "borderStyle": "black",
+    "backgroundColor": "#E51C23",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/home/home"
+      },
+      
+      {
+        "text": "个人中心",
+        "pagePath": "pages/my/my"
+      }
+    ]
   }
 }

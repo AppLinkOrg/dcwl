@@ -13,8 +13,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.6.1",
-	"appid": "wx0824637aa4edc481",
-	"projectname": "%E6%A8%A1%E6%9D%BF",
+	"appid": "wxff23e3e96e8aa21a",
+	"projectname": "%E5%A4%A7%E6%9E%9E%E7%89%A9%E6%B5%81",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
@@ -37,12 +37,47 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
 					"name": "登录",
 					"pathName": "pages/login/login",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单详情",
+					"pathName": "pages/details/details",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "接单详情",
+					"pathName": "pages/receiptDetails/receiptDetails",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "运输详情",
+					"pathName": "pages/transportDetails/transportDetails",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "取货详情",
+					"pathName": "pages/pickUpGoodsDetails/pickUpGoodsDetails",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "订单列表",
+					"pathName": "pages/orderList/orderList",
 					"scene": null
 				}
 			]

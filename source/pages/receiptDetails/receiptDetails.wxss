@@ -1,0 +1,14 @@
+page {
+  background: #f6f6f6;
+}
+
+.top{
+  border: 1rpx solid BBBBBB;
+}
+.content {
+  width: 682rpx;
+  background: #fff;
+  border-radius: 20rpx;
+}
+
+

@@ -3,7 +3,7 @@ page {
 }
 
 .top {
-  border-bottom: 4rpx solid white;
+  border-bottom: 1rpx solid #bbb;
 }
 
 .top_title {
@@ -29,7 +29,7 @@ page {
 
 
 .time {
-  height: 100rpx;
+  height: 130rpx;
   border-top: 2rpx solid #bbb;
   color: #000;
 }

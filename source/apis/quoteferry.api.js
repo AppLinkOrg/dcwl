@@ -1,15 +1,15 @@
 /*******使用方法，下面两句复制到page的js文件的头部
 
 import { ApiConfig } from '../../apis/apiconfig';
-import { InstApi } from '../../apis/inst.api';
+import { InstApi } from '../../apis/quoteferry.api';
 
-var instApi=new InstApi();
+var quoteferryApi=new QuoteferryApi();
 *******/
 import { ApiConfig } from 'apiconfig';
-export class InstApi{
+export class QuoteferryApi{
 
 
-    aboutus(json, callback, showLoading = true) {
+    abandon(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -18,7 +18,7 @@ export class InstApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'inst/aboutus',
+            url: ApiConfig.GetApiUrl() + 'quoteferry/abandon',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -41,7 +41,7 @@ export class InstApi{
         })
     }
 
-    aboutuslist(json, callback, showLoading = true) {
+    confirm(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -50,7 +50,7 @@ export class InstApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'inst/aboutuslist',
+            url: ApiConfig.GetApiUrl() + 'quoteferry/confirm',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -73,7 +73,7 @@ export class InstApi{
         })
     }
 
-    indexbanner(json, callback, showLoading = true) {
+    create(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -82,7 +82,7 @@ export class InstApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'inst/indexbanner',
+            url: ApiConfig.GetApiUrl() + 'quoteferry/create',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -114,7 +114,7 @@ export class InstApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'inst/info',
+            url: ApiConfig.GetApiUrl() + 'quoteferry/info',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -137,7 +137,7 @@ export class InstApi{
         })
     }
 
-    news(json, callback, showLoading = true) {
+    instlist(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -146,7 +146,7 @@ export class InstApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'inst/news',
+            url: ApiConfig.GetApiUrl() + 'quoteferry/instlist',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -169,7 +169,7 @@ export class InstApi{
         })
     }
 
-    newscat(json, callback, showLoading = true) {
+    list(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -178,7 +178,7 @@ export class InstApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'inst/newscat',
+            url: ApiConfig.GetApiUrl() + 'quoteferry/list',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -201,7 +201,7 @@ export class InstApi{
         })
     }
 
-    newslist(json, callback, showLoading = true) {
+    priceitem(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -210,7 +210,7 @@ export class InstApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'inst/newslist',
+            url: ApiConfig.GetApiUrl() + 'quoteferry/priceitem',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -233,7 +233,7 @@ export class InstApi{
         })
     }
 
-    product(json, callback, showLoading = true) {
+    quote(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -242,7 +242,7 @@ export class InstApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'inst/product',
+            url: ApiConfig.GetApiUrl() + 'quoteferry/quote',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -265,7 +265,7 @@ export class InstApi{
         })
     }
 
-    productcatlist(json, callback, showLoading = true) {
+    updatepriceitem(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -274,135 +274,7 @@ export class InstApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'inst/productcatlist',
-            data: json,
-            method: 'POST',
-            dataType: 'json',
-            header: header,
-            success: function (res) {
-                if (callback != null) {
-                    callback(res.data);
-                }
-            },
-            fail: function (res) {
-                console.log(res);
-                callback(false);
-            },
-            complete: function (res) {
-                console.log(res);
-            
-                if (showLoading)
-                    ApiConfig.CloseLoading();
-            }
-        })
-    }
-
-    productlist(json, callback, showLoading = true) {
-
-        if (showLoading)
-            ApiConfig.ShowLoading();
-
-        var header = ApiConfig.GetHeader();
-        console.log(header);
-        console.log(json);
-        wx.request({
-            url: ApiConfig.GetApiUrl() + 'inst/productlist',
-            data: json,
-            method: 'POST',
-            dataType: 'json',
-            header: header,
-            success: function (res) {
-                if (callback != null) {
-                    callback(res.data);
-                }
-            },
-            fail: function (res) {
-                console.log(res);
-                callback(false);
-            },
-            complete: function (res) {
-                console.log(res);
-            
-                if (showLoading)
-                    ApiConfig.CloseLoading();
-            }
-        })
-    }
-
-    service(json, callback, showLoading = true) {
-
-        if (showLoading)
-            ApiConfig.ShowLoading();
-
-        var header = ApiConfig.GetHeader();
-        console.log(header);
-        console.log(json);
-        wx.request({
-            url: ApiConfig.GetApiUrl() + 'inst/service',
-            data: json,
-            method: 'POST',
-            dataType: 'json',
-            header: header,
-            success: function (res) {
-                if (callback != null) {
-                    callback(res.data);
-                }
-            },
-            fail: function (res) {
-                console.log(res);
-                callback(false);
-            },
-            complete: function (res) {
-                console.log(res);
-            
-                if (showLoading)
-                    ApiConfig.CloseLoading();
-            }
-        })
-    }
-
-    servicelist(json, callback, showLoading = true) {
-
-        if (showLoading)
-            ApiConfig.ShowLoading();
-
-        var header = ApiConfig.GetHeader();
-        console.log(header);
-        console.log(json);
-        wx.request({
-            url: ApiConfig.GetApiUrl() + 'inst/servicelist',
-            data: json,
-            method: 'POST',
-            dataType: 'json',
-            header: header,
-            success: function (res) {
-                if (callback != null) {
-                    callback(res.data);
-                }
-            },
-            fail: function (res) {
-                console.log(res);
-                callback(false);
-            },
-            complete: function (res) {
-                console.log(res);
-            
-                if (showLoading)
-                    ApiConfig.CloseLoading();
-            }
-        })
-    }
-
-    resources(json, callback, showLoading = true) {
-
-        if (showLoading)
-            ApiConfig.ShowLoading();
-
-        var header = ApiConfig.GetHeader();
-        console.log(header);
-        console.log(json);
-        wx.request({
-            url: ApiConfig.GetApiUrl() + 'inst/resources',
+            url: ApiConfig.GetApiUrl() + 'quoteferry/updatepriceitem',
             data: json,
             method: 'POST',
             dataType: 'json',
