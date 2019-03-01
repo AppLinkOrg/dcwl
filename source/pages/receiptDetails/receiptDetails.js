@@ -71,6 +71,12 @@ class Content extends AppBase {
       url: '/pages/news/news',
     })
   }
+
+  quhuo(e){
+    wx.navigateTo({
+      url: '/pages/pickUpGoodsDetails/pickUpGoodsDetails',
+    })
+  }
 }
 
 
@@ -83,4 +89,5 @@ body.bindwaitcompleted = content.bindwaitcompleted;
 body.bindcontact = content.bindcontact;
 body.todetails = content.todetails;
 body.tocontent = content.tocontent;
+body.quhuo = content.quhuo;
 Page(body)
