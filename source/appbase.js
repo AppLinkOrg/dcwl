@@ -13,7 +13,7 @@ export class AppBase {
   static QQMAPKEY = "IDVBZ-TSAKD-TXG43-H442I-74KVK-6LFF5";
   static UserInfo = {};
   static InstInfo = {};
-  unicode = "ferryexpress";
+  unicode = "siji";
   needauth = true;
   pagetitle = null;
   app = null;
@@ -194,14 +194,14 @@ export class AppBase {
                 //this.loadtabtype();
 
 
-                memberapi.update(AppBase.UserInfo, () => {
+                // memberapi.update(AppBase.UserInfo, () => {
 
-                  console.log(AppBase.UserInfo);
-                  that.Base.setMyData({ UserInfo: AppBase.UserInfo });
+                //   console.log(AppBase.UserInfo);
+                //   that.Base.setMyData({ UserInfo: AppBase.UserInfo });
 
-                  that.checkPermission();
+                //   that.checkPermission();
 
-                });
+                // });
 
                 //that.Base.getAddress();
               });
@@ -218,19 +218,19 @@ export class AppBase {
                 AppBase.UserInfo.session_key = data.session_key;
                 console.log(AppBase.UserInfo);
                 ApiConfig.SetToken(data.openid);
+                // memberapi.update(AppBase.UserInfo, () => {
+
+                //   console.log(AppBase.UserInfo);
+                //   that.Base.setMyData({ UserInfo: AppBase.UserInfo });
+
+                  that.checkPermission();
+
+                // });
                 console.log("goto update info");
 
-
-                //that.Base.gotoOpenUserInfoSetting();
-                if (this.Base.needauth == true) {
-                  wx.redirectTo({
-                    url: '/pages/auth/auth',
-                  })
-                } else {
-                  that.onMyShow();
-                }
+              
               });
-              //that.getAddress();
+              
             }
           });
 
@@ -255,9 +255,21 @@ export class AppBase {
     var memberapi = new MemberApi();
     var that = this;
     memberapi.info({}, (info) => {
-
-      this.Base.setMyData({ memberinfo: info });
-      that.onMyShow();
+      console.log("info tt");
+      console.log(info);
+      console.log(info);
+      console.log(info);
+      console.log(info);
+      if (info != null
+        && (info.mobile == undefined || info.mobile == "")
+        && this.Base.needauth == true) {
+        wx.reLaunch({
+          url: '/pages/login/login',
+        })
+      } else {
+        this.Base.setMyData({ memberinfo: info });
+        that.onMyShow();
+      }
 
     });
   }
@@ -480,7 +492,7 @@ export class AppBase {
     });
   }
 
-  uploadImage(modul, callback, count = 1, completecallback) {
+  uploadImage(modul, callback, completecallback, count) {
     wx.chooseImage({
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
@@ -508,7 +520,7 @@ export class AppBase {
               if (data.substr(0, 7) == "success") {
                 data = data.split("|");
                 var photo = data[2];
-                callback(photo);
+                callback(photo, i);
               } else {
                 console.error(res.data);
                 wx.showToast({

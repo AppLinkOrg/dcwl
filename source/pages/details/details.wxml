@@ -1,30 +1,33 @@
-<view class='f-32 txt-black bg-white height-100 padding-left-40 flex-center flex-row padding-top-20'>运单号：1234567890
+<view class='f-32 txt-black bg-white height-100 padding-left-40 flex-center flex-row padding-top-20'>运单号：{{datas.orderno}}
 </view>
 <view class='content padding-bottom-40 '>
   <view class='flex-row padding-top-20'>
     <image src='{{uploadpath}}resource/qu.png' class='icon-30 margin-10 margin-left'></image>
     <view>
-      <view class='margin-10 f-36 flex-1' style='color: #000;'>信通大夏</view>
-      <view class='margin-10 flex-1' style='color: #858A96;'>信通大夏</view>
+      <view class='margin-10 f-36 flex-1' style='color: #000;'>{{datas.start_address}}</view>
+      <view class='margin-10 flex-1' style='color: #858A96;'>{{datas.start_address}}</view>
     </view>
   </view>
 
   <view class='flex-row margin-top-20'>
     <image src='{{uploadpath}}resource/song.png' class='icon-30 margin-10 margin-left'></image>
     <view>
-      <view class='margin-10 f-36 flex-1' style='color: #000;'>和平里东街13号</view>
-      <view class='margin-10 flex-1' style='color: #858A96;'>东街8号1号楼</view>
+      <view class='margin-10 f-36 flex-1' style='color: #000;'>{{datas.end_address}}</view>
+      <view class='margin-10 flex-1' style='color: #858A96;'>{{datas.end_address}}</view>
     </view>
   </view>
 
   <view class='flex-row margin-top-60'>
     <view class='margin-left'>
       <view class='margin-10 txt-black f-32 flex-row height-70'>
-        <view class='txt-black f-32' style='width: 180rpx;'>接单时间：</view>2019-02-05 14:00</view>
+        <view class='txt-black f-32' style='width: 180rpx;'>接单时间：</view>{{datas.receipt_time}}</view>
       <view class='margin-10 txt-black f-32 flex-row height-70'>
-        <view class='txt-black f-32' style='width: 180rpx;'>取货时间：</view>2019-02-05 14:00</view>
+        <view class='txt-black f-32' style='width: 180rpx;'>取货时间：</view>{{datas.pickupgoods_time}}</view>
       <view class='margin-10 txt-black f-32 flex-row height-70'>
-        <view class='txt-black f-32' style='width: 180rpx;'>送达时间：</view>2019-02-05 14:00</view>
+        <view class='txt-black f-32' style='width: 180rpx;' >送达时间：</view>{{datas.order_end_time}}
+        
+      </view>
+        
     </view>
   </view>
 

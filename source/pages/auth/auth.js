@@ -8,6 +8,7 @@ import {
   InstApi
 } from "../../apis/inst.api.js";
 
+
 class Content extends AppBase {
   constructor() {
     super();
@@ -20,6 +21,10 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this;
+    var instapi = new InstApi();
+    instapi.indexbanner({}, (indexbanner) => {
+      this.Base.setMyData({ indexbanner });
+    });
   }
   checkPermission() {
 

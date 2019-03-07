@@ -3,6 +3,7 @@ import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { ContentApi } from "../../apis/content.api";
 import { MemberApi } from "../../apis/member.api";
+import { InstApi } from "../../apis/inst.api.js";
 
 class Content extends AppBase {
   constructor() {
@@ -15,14 +16,16 @@ class Content extends AppBase {
   }
   onMyShow() {
     var that = this;
+    var instapi = new InstApi();
+    instapi.info({}, (info) => {
+      that.Base.setMyData(info);
+    });
     var memberApi = new MemberApi();
     memberApi.info({}, (memberinfo) => {
       if (memberinfo != null) {
         this.Base.setMyData({ memberinfo: memberinfo });
       }
     });
-
-
   }
 }
 var content = new Content();

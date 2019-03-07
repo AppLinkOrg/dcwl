@@ -1,9 +1,9 @@
 <view class='text-center memberinfo'>
 <view>
-      <image class='avatar' src='{{UserInfo.avatarUrl}}'></image>
+      <image class='avatar' src='{{uploadpath}}inst/{{logobackimg}}'></image>
     </view>
     <view class='nickname'>
-      {{UserInfo.nickName}}
+      {{memberinfo.name}},欢迎使用小程序
     </view>
 </view>
 

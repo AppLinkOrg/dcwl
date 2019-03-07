@@ -2,7 +2,7 @@
 import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
-// import { BookApi } from "../../apis/book.api.js";
+import { QuoteferryApi } from "../../apis/quoteferry.api.js";
 class Content extends AppBase {
   constructor() {
     super();
@@ -23,26 +23,16 @@ class Content extends AppBase {
     //   mask: true
     // })
     var that = this;
-    var instapi = new InstApi();
-
-   
-    instapi.indexbanner({}, (indexbanner) => {
-      this.Base.setMyData({ indexbanner });
+    var quoteferryapi = new QuoteferryApi();
+    quoteferryapi.listdriver({ status: 4 }, (ret) => {
+      this.Base.setMyData({ list_4: ret });
     });
-
-    // var bookapi = new BookApi();
-    // bookapi.booklist({ ishot: "Y" }, (booklist) => {
-    //   this.Base.setMyData({ booklist });
-    // });
-
-    // bookapi.booklist({ isday: "Y" }, (everydaylist) => {
-    //   this.Base.setMyData({ everydaylist });
-    // });
-
-    // bookapi.booklist({ isnew: "Y" }, (newlist) => {
-    //   this.Base.setMyData({ newlist });
-    //   wx.hideLoading()
-    // });
+    quoteferryapi.listdriver({ status: 5 }, (ret) => {
+      this.Base.setMyData({ list_5: ret });
+    });
+    quoteferryapi.listdriver({ status: 6 }, (ret) => {
+      this.Base.setMyData({ list_6: ret });
+    });
 
   }
 

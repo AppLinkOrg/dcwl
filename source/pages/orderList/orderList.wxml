@@ -1,22 +1,25 @@
 <view class="flex-row">
   <view class="flex-1"></view>
   <view class=''>
-    <navigator class='content margin-20 ' url='../details/details' wx:for='{{3}}'>
+    <navigator class='content margin-20 ' url='../details/details?id={{item.id}}' wx:for='{{list}}'>
       <view class='flex-row padding-left-40 height-70 flex-center'>
-        <view class='f-32 txt-black'>运单号：1234567890</view>
+        <view class='f-32 txt-black'>运单号：{{item.orderno}}</view>
         <view class="flex-1"></view>
-        <view class='f-32 txt-blue txt-bold margin-right-40'>运输中</view>
+        <view class='f-32 txt-blue txt-bold margin-right-40' wx:if='{{item.status==4}}'>待取货</view>
+        <view class='f-32 txt-blue txt-bold margin-right-40' wx:if='{{item.status==5}}'>运输中</view>
+        <view class='f-32 txt-blue txt-bold margin-right-40' wx:if='{{item.status==6}}'>运输中</view>
+        <view class='f-32 txt-blue txt-bold margin-right-40' wx:if='{{item.status==7}}'>已完成</view>
       </view>
       <view class='flex-row padding-top-20'>
         <image src='{{uploadpath}}resource/qu.png' class='icon-30 margin-10 margin-left'></image>
         <view>
-          <view class='margin-10 f-36 flex-1' style='color: #000;'>信通大夏</view>
+          <view class='margin-10 f-36 flex-1' style='color: #000;'>{{item.start_address}}</view>
         </view>
       </view>
       <view class='flex-row'>
         <image src='{{uploadpath}}resource/song.png' class='icon-30 margin-10 margin-left'></image>
         <view>
-          <view class='margin-10 f-36 flex-1' style='color: #000;'>和平里东街13号</view>
+          <view class='margin-10 f-36 flex-1' style='color: #000;'>{{item.end_address}}</view>
         </view>
       </view>
     </navigator>

@@ -7,8 +7,8 @@
       <view class='flex-row padding-top-20'>
         <image src='{{uploadpath}}resource/qu.png' class='icon-30 margin-10 margin-left'></image>
         <view>
-          <view class='margin-10 f-36 flex-1' style='color: #000;'>信通大夏</view>
-          <view class='margin-10 flex-1' style='color: #858A96;'>信通大夏</view>
+          <view class='margin-10 f-36 flex-1' style='color: #000;'>{{datas.start_address}}</view>
+          <view class='margin-10 flex-1' style='color: #858A96;'>{{datas.start_address}}</view>
         </view>
          <view class="flex-1"></view>
         <image src='{{uploadpath}}resource/mapp.png' bindtap='openMap' id="{{startaddress}}" class='icon-30 margin-10 margin-right-40'></image>
@@ -17,8 +17,8 @@
       <view class='flex-row'>
         <image src='{{uploadpath}}resource/song.png' class='icon-30 margin-10 margin-left'></image>
         <view>
-          <view class='margin-10 f-36 flex-1' style='color: #000;'>和平里东街13号</view>
-          <view class='margin-10 flex-1' style='color: #858A96;'>东街8号1号楼</view>
+          <view class='margin-10 f-36 flex-1' style='color: #000;'>{{datas.end_address}}</view>
+          <view class='margin-10 flex-1' style='color: #858A96;'>{{datas.end_address}}</view>
         </view>
          <view class="flex-1"></view>
         <image src='{{uploadpath}}resource/mapp.png' bindtap='openMap' id="{{targetaddress}}" class='icon-30 margin-10 margin-right-40'></image>
@@ -27,9 +27,9 @@
       <view class='flex-row padding-bottom-30'>
         <view class='margin-left'>
           <view class='margin-10 txt-black f-32 flex-row height-50'>
-            <view class='txt-black f-32' style='width: 180rpx;'>车牌号：</view> 粤A452687</view>
+            <view class='txt-black f-32' style='width: 180rpx;'>车牌号：</view>{{datas.vehicle_plate_number}}</view>
           <view class='margin-10 txt-black f-32 flex-row height-50'>
-            <view class='txt-black f-32' style='width: 180rpx;'>接单时间：</view>2019-02-05 14:00</view>
+            <view class='txt-black f-32' style='width: 180rpx;'>接单时间：</view>{{datas.receipt_time}}</view>
         </view>
       </view>
 
@@ -39,8 +39,9 @@
 </view>
 <view class=' flex-row margin-top-60'>
   <view class="flex-1"></view>
-  <view class='upload_img radius-10'>
-    <view class='flex-center flex-row' bindtap=''>
+  <image src='{{uploadpath}}photo/{{photo}}' mode='aspectFit' wx:if='{{photo}}' style='width: 500rpx;height: 300rpx;'></image>
+  <view class='upload_img radius-10' wx:else>
+    <view class='flex-center flex-row' bindtap='uploadimg'>
       <view class="flex-1"></view>
       <image src='{{uploadpath}}resource/jiahao.png' class='icon-60  margin-top-60'></image>
       <view class="flex-1"></view>
@@ -51,6 +52,6 @@
 </view>
 <view class='flex-center flex-row margin-bottom-40'>
   <view class="flex-1"></view>
-  <button class='bg-blue txt-white text-center margin-20 margin-top-60 f-36' form-type='submit' style='width: 250rpx;'>确认取货</button>
+  <button class='bg-blue txt-white text-center margin-20 margin-top-60 f-36' bindtap='confirm' id='{{datas.id}}' style='width: 250rpx;'>确认取货</button>
   <view class="flex-1"></view>
 </view>
