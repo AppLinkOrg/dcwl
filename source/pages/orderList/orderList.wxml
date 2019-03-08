@@ -1,7 +1,7 @@
 <view class="flex-row">
   <view class="flex-1"></view>
   <view class=''>
-    <navigator class='content margin-20 ' url='../details/details?id={{item.id}}' wx:for='{{list}}'>
+    <navigator class='content margin-20 ' url='../details/details?id={{item.id}}' wx:key wx:for='{{list}}'>
       <view class='flex-row padding-left-40 height-70 flex-center'>
         <view class='f-32 txt-black'>运单号：{{item.orderno}}</view>
         <view class="flex-1"></view>

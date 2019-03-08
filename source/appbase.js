@@ -194,14 +194,14 @@ export class AppBase {
                 //this.loadtabtype();
 
 
-                // memberapi.update(AppBase.UserInfo, () => {
+                memberapi.update(AppBase.UserInfo, () => {
 
-                //   console.log(AppBase.UserInfo);
-                //   that.Base.setMyData({ UserInfo: AppBase.UserInfo });
+                  console.log(AppBase.UserInfo);
+                  that.Base.setMyData({ UserInfo: AppBase.UserInfo });
 
-                //   that.checkPermission();
+                  that.checkPermission();
 
-                // });
+                });
 
                 //that.Base.getAddress();
               });
@@ -218,14 +218,14 @@ export class AppBase {
                 AppBase.UserInfo.session_key = data.session_key;
                 console.log(AppBase.UserInfo);
                 ApiConfig.SetToken(data.openid);
-                // memberapi.update(AppBase.UserInfo, () => {
+                memberapi.update(AppBase.UserInfo, () => {
 
-                //   console.log(AppBase.UserInfo);
-                //   that.Base.setMyData({ UserInfo: AppBase.UserInfo });
+                  console.log(AppBase.UserInfo);
+                  that.Base.setMyData({ UserInfo: AppBase.UserInfo });
 
                   that.checkPermission();
 
-                // });
+                });
                 console.log("goto update info");
 
               

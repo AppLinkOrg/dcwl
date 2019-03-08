@@ -3,6 +3,8 @@ import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
 import { QuoteferryApi } from "../../apis/quoteferry.api.js";
+import { MemberApi } from "../../apis/member.api.js";
+
 class Content extends AppBase {
   constructor() {
     super();
@@ -23,14 +25,20 @@ class Content extends AppBase {
     //   mask: true
     // })
     var that = this;
+
+    var memberApi = new MemberApi();
+    memberApi.info({}, (ret) => {
+      that.Base.setMyData({ mobile: ret.mobile });
+    })
+
     var quoteferryapi = new QuoteferryApi();
-    quoteferryapi.listdriver({ status: 4 }, (ret) => {
+    quoteferryapi.listdriver({ status: 4, mobile: that.Base.getMyData().mobile}, (ret) => {
       this.Base.setMyData({ list_4: ret });
     });
-    quoteferryapi.listdriver({ status: 5 }, (ret) => {
+    quoteferryapi.listdriver({ status: 5, mobile: that.Base.getMyData().mobile }, (ret) => {
       this.Base.setMyData({ list_5: ret });
     });
-    quoteferryapi.listdriver({ status: 6 }, (ret) => {
+    quoteferryapi.listdriver({ status: 6, mobile: that.Base.getMyData().mobile}, (ret) => {
       this.Base.setMyData({ list_6: ret });
     });
 

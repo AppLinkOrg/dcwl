@@ -8,20 +8,20 @@
         <image src='{{uploadpath}}resource/qu.png' class='icon-30 margin-10 margin-left'></image>
         <view>
           <view class='margin-10 f-36 flex-1' style='color: #000;'>{{datas.start_address}}</view>
-          <view class='margin-10 flex-1' style='color: #858A96;'>{{datas.start_address}}</view>
+          <view class='margin-10 flex-1' style='color: #858A96;'>{{datas.s_address_details}}</view>
         </view>
          <view class="flex-1"></view>
-        <image src='{{uploadpath}}resource/mapp.png' bindtap='openMap' id="{{startaddress}}" class='icon-30 margin-10 margin-right-40'></image>
+        <image src='{{uploadpath}}resource/mapp.png' bindtap='openMap' id="{{datas.s_address_details}}" class='icon-30 margin-10 margin-right-40'></image>
       </view>
 
       <view class='flex-row'>
         <image src='{{uploadpath}}resource/song.png' class='icon-30 margin-10 margin-left'></image>
         <view>
           <view class='margin-10 f-36 flex-1' style='color: #000;'>{{datas.end_address}}</view>
-          <view class='margin-10 flex-1' style='color: #858A96;'>{{datas.end_address}}</view>
+          <view class='margin-10 flex-1' style='color: #858A96;'>{{datas.e_address_details}}</view>
         </view>
          <view class="flex-1"></view>
-        <image src='{{uploadpath}}resource/mapp.png' bindtap='openMap' id="{{targetaddress}}" class='icon-30 margin-10 margin-right-40'></image>
+        <image src='{{uploadpath}}resource/mapp.png' bindtap='openMap' id="{{datas.e_address_details}}" class='icon-30 margin-10 margin-right-40'></image>
       </view>
 
       <view class='flex-row padding-bottom-30'>
