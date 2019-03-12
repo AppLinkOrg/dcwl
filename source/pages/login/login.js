@@ -39,12 +39,20 @@ class Content extends AppBase {
     var openid = AppBase.UserInfo.openid;
     var session_key = AppBase.UserInfo.session_key;
     var api = new MemberApi();
+    
     api.register({ mobile, name, openid, session_key }, (ret) => {
       console.log(ret)
       if (ret.code == 0) {
-        wx.reLaunch({
-          url: '/pages/home/home',
+        api.info({}, (res) => {
+          if (res.userrole_id == 1 && res.name == name) {
+            wx.reLaunch({
+              url: '/pages/home/home',
+            })
+          }else{
+            this.Base.info("请联系管理员添加登录权限");
+          }
         })
+        
       } else {
         this.Base.info("用户信息不正确");
       }

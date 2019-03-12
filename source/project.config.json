@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 5,
+			"current": 6,
 			"list": [
 				{
 					"id": -1,
@@ -78,6 +78,13 @@
 					"id": -1,
 					"name": "订单列表",
 					"pathName": "pages/orderList/orderList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "统计",
+					"pathName": "pages/count/count",
 					"scene": null
 				}
 			]

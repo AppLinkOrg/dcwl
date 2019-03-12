@@ -42,16 +42,22 @@ class Content extends AppBase {
       , undefined, 1);
   }
 
+  arriveRemark(e){
+    
+    this.Base.setMyData({ arriveRemark: e.detail.value})
+    console.log(this.Base.getMyData().arriveRemark)
+  }
+
   confirm(e) {
     if (this.Base.getMyData().photo == "") {
       this.Base.info("请上传收货单");
       return;
     }
     var quoteferryapi = new QuoteferryApi();
-    quoteferryapi.uploadreceipt({ id: this.Base.getMyData().id, receipt_img: this.Base.getMyData().photo }, (ret) => {
+    quoteferryapi.uploadreceipt({ id: this.Base.getMyData().id, receipt_img: this.Base.getMyData().photo, arriveRemark: this.Base.getMyData().arriveRemark }, (ret) => {
       console.log(ret)
       if (ret.result == 'SUCCESS') {
-        wx.navigateTo({
+        wx.redirectTo({
           url: '/pages/orderList/orderList',
         })
       }
@@ -68,5 +74,6 @@ body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.uploadimg = content.uploadimg;
 body.confirm = content.confirm;
+body.arriveRemark = content.arriveRemark;
 
 Page(body)

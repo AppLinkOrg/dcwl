@@ -21,3 +21,9 @@ page {
   height: 160rpx;
   
 }
+
+.textarea{
+  width: 450rpx;
+  height: 150rpx;
+  border: 1rpx solid #f6f6f6;
+}

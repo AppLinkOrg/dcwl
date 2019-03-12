@@ -10,7 +10,7 @@
           <view class='margin-10 f-36 flex-1' style='color: #000;'>{{datas.start_address}}</view>
           <view class='margin-10 flex-1' style='color: #858A96;'>{{datas.s_address_details}}</view>
         </view>
-         <view class="flex-1"></view>
+        <view class="flex-1"></view>
         <image src='{{uploadpath}}resource/mapp.png' bindtap='openMap' id="{{datas.s_address_details}}" class='icon-30 margin-10 margin-right-40'></image>
       </view>
 
@@ -20,7 +20,7 @@
           <view class='margin-10 f-36 flex-1' style='color: #000;'>{{datas.end_address}}</view>
           <view class='margin-10 flex-1' style='color: #858A96;'>{{datas.e_address_details}}</view>
         </view>
-         <view class="flex-1"></view>
+        <view class="flex-1"></view>
         <image src='{{uploadpath}}resource/mapp.png' bindtap='openMap' id="{{datas.e_address_details}}" class='icon-30 margin-10 margin-right-40'></image>
       </view>
 
@@ -33,6 +33,15 @@
         </view>
       </view>
 
+    </view>
+
+    <view class='flex-row flex-center margin-top'>
+      <view class=''>
+        <image class='icon-30' src='{{uploadpath}}resource/song.png'></image>
+      </view>
+      <view class='flex-1 margin-left-20'>
+        <input class='padding-10 txt-black h5' placeholder='请输入当前车辆行驶里程数' name='name' style='border-bottom:1rpx solid #e5e500;width:500rpx;'></input>
+      </view>
     </view>
   </view>
   <view class="flex-1"></view>

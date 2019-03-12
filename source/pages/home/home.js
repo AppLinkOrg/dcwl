@@ -28,19 +28,22 @@ class Content extends AppBase {
 
     var memberApi = new MemberApi();
     memberApi.info({}, (ret) => {
-      that.Base.setMyData({ mobile: ret.mobile });
+      // that.Base.setMyData({ mobile: ret.mobile });
+      // console.log(that.Base.getMyData().mobile)
+      var quoteferryapi = new QuoteferryApi();
+      quoteferryapi.listdriver({ status: 4, mobile: ret.mobile }, (ret) => {
+        this.Base.setMyData({ list_4: ret });
+      });
+      quoteferryapi.listdriver({ status: 5, mobile: ret.mobile }, (ret) => {
+        this.Base.setMyData({ list_5: ret });
+      });
+      quoteferryapi.listdriver({ status: 6, mobile: ret.mobile }, (ret) => {
+        this.Base.setMyData({ list_6: ret });
+      });
     })
+    
 
-    var quoteferryapi = new QuoteferryApi();
-    quoteferryapi.listdriver({ status: 4, mobile: that.Base.getMyData().mobile}, (ret) => {
-      this.Base.setMyData({ list_4: ret });
-    });
-    quoteferryapi.listdriver({ status: 5, mobile: that.Base.getMyData().mobile }, (ret) => {
-      this.Base.setMyData({ list_5: ret });
-    });
-    quoteferryapi.listdriver({ status: 6, mobile: that.Base.getMyData().mobile}, (ret) => {
-      this.Base.setMyData({ list_6: ret });
-    });
+    
 
   }
 

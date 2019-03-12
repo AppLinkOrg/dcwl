@@ -112,8 +112,6 @@
           </view>
         </view>
       </view>
-
-
     </navigator>
   </view>
   <view class="flex-1"></view>

@@ -4,13 +4,13 @@
   <view class=''>
     <view class='content margin-20 '>
 
-        <view class='flex-row padding-top-20'>
+      <view class='flex-row padding-top-20'>
         <image src='{{uploadpath}}resource/qu.png' class='icon-30 margin-10 margin-left'></image>
         <view>
           <view class='margin-10 f-36 flex-1' style='color: #000;'>{{datas.start_address}}</view>
           <view class='margin-10 flex-1' style='color: #858A96;'>{{datas.s_address_details}}</view>
         </view>
-         <view class="flex-1"></view>
+        <view class="flex-1"></view>
         <image src='{{uploadpath}}resource/mapp.png' bindtap='openMap' id="{{datas.s_address_details}}" class='icon-30 margin-10 margin-right-40'></image>
       </view>
 
@@ -20,7 +20,7 @@
           <view class='margin-10 f-36 flex-1' style='color: #000;'>{{datas.end_address}}</view>
           <view class='margin-10 flex-1' style='color: #858A96;'>{{datas.e_address_details}}</view>
         </view>
-         <view class="flex-1"></view>
+        <view class="flex-1"></view>
         <image src='{{uploadpath}}resource/mapp.png' bindtap='openMap' id="{{datas.e_address_details}}" class='icon-30 margin-10 margin-right-40'></image>
       </view>
 
@@ -37,9 +37,17 @@
             <image src='{{uploadpath}}photo/{{datas.pickupgoods_img}}' class='voucher_img'></image>
           </view>
 
-          
+
         </view>
       </view>
+
+      <view class='flex-row padding-bottom-20' >
+        <view class='margin-10  flex-row '>
+          <view class='txt-black f-32' style='width: 180rpx;'>到货备注：</view>
+          <textarea class='textarea input padding-10' name='arriveRemark' bindinput='arriveRemark' placeholder='到货备注'></textarea>
+        </view>
+      </view>
+
     </view>
   </view>
   <view class="flex-1"></view>
@@ -48,7 +56,7 @@
   <view class="flex-1"></view>
   <image src='{{uploadpath}}photo/{{photo}}' mode='aspectFit' wx:if='{{photo}}' style='width: 400rpx;height: 200rpx;'></image>
   <view class='upload_img radius-10' wx:else bindtap='uploadimg'>
-    <view class='flex-center flex-row' >
+    <view class='flex-center flex-row'>
       <view class="flex-1"></view>
       <image src='{{uploadpath}}resource/jiahao.png' class='icon-40  margin-top'></image>
       <view class="flex-1"></view>

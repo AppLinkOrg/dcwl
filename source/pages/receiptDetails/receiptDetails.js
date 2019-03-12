@@ -37,7 +37,7 @@ class Content extends AppBase {
     quoteferryapi.receipt({ id: this.Base.getMyData().id }, (ret) => {
       console.log(ret)
       if (ret.result == 'SUCCESS') {
-        wx.navigateTo({
+        wx.redirectTo({
           url: '/pages/pickUpGoodsDetails/pickUpGoodsDetails?id=' + this.Base.getMyData().id,
         })
       }

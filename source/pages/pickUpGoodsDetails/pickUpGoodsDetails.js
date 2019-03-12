@@ -29,7 +29,14 @@ class Content extends AppBase {
       this.Base.setMyData({ datas: ret });
     });
 
+    that.Base.getAddress((res)=>{
+      console.log(res)
+      that.Base.setMyData({ address: res.address});
+    })
+
   }
+
+  
 
   uploadimg(e) {
     var that = this;
@@ -48,10 +55,10 @@ class Content extends AppBase {
       return;
     }
     var quoteferryapi = new QuoteferryApi();
-    quoteferryapi.pickupgoods({ id: this.Base.getMyData().id, pickupgoods_img: this.Base.getMyData().photo }, (ret) => {
+    quoteferryapi.pickupgoods({ id: this.Base.getMyData().id, pickupgoods_img: this.Base.getMyData().photo, pickupgoods_address: this.Base.getMyData().address }, (ret) => {
       console.log(ret)
       if (ret.result =='SUCCESS'){
-        wx.navigateTo({
+        wx.redirectTo({
           url: '/pages/transportDetails/transportDetails?id=' + this.Base.getMyData().id,
         })
       }

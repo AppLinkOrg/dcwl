@@ -3,6 +3,7 @@ import { AppBase } from "../../appbase";
 import { ApiConfig } from "../../apis/apiconfig";
 import { InstApi } from "../../apis/inst.api.js";
 import { QuoteferryApi } from "../../apis/quoteferry.api.js";
+import { MemberApi } from "../../apis/member.api.js";
 class Content extends AppBase {
   constructor() {
     super();
@@ -12,7 +13,7 @@ class Content extends AppBase {
     //options.id=5;
     super.onLoad(options);
     this.Base.setMyData({
-      ctt: 1
+      month: options.month
     })
 
   }
@@ -23,11 +24,24 @@ class Content extends AppBase {
     //   mask: true
     // })
     var that = this;
-    var quoteferryapi = new QuoteferryApi();
-    quoteferryapi.listdriver({  }, (ret) => {
-      console.log(ret)
-      this.Base.setMyData({ list: ret });
-    });
+    var memberApi = new MemberApi();
+    memberApi.info({}, (ret) => {
+      var quoteferryapi = new QuoteferryApi();
+      var submit_time= that.Base.getMyData().month;
+      if (submit_time){
+        quoteferryapi.listdriver({ mobile: ret.mobile, submit_time: submit_time }, (ret) => {
+          console.log(ret)
+          this.Base.setMyData({ list: ret });
+        });
+      }else{
+        quoteferryapi.listdriver({ mobile: ret.mobile }, (ret) => {
+          console.log(ret)
+          this.Base.setMyData({ list: ret });
+        });
+      }
+      
+    })
+    
   
   }
 
