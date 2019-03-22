@@ -23,12 +23,14 @@ class Content extends AppBase {
     this.Base.Page = this;
     //options.id=5;
     super.onLoad(options);
+    console.log(options.id)
 
     this.Base.setMyData({
+      id: options.id,
       images1: [],
       images2: [],
-      images3: [],
-      id: options.id
+      images3: []
+      
     })
 
 
@@ -126,6 +128,10 @@ class Content extends AppBase {
 
   confirm(e){
     var that = this;
+    var id = that.Base.getMyData().id;
+    if(!id){
+      id = that.Base.getMyData().id;
+    }
     if (this.Base.getMyData().images1.length == 0) {
       this.Base.info("请至少上传一张取货单图片");
       return;
@@ -164,9 +170,11 @@ class Content extends AppBase {
     var goods_img4 = images3[3];
     var goods_img5 = images3[4];
     var goods_img6 = images3[5];
-
+    console.log(that.Base.getMyData().id)
+    // return;
+    
     var data={
-      id: that.Base.getMyData().id,
+      id: id,
       pickupgoods_img1: pickupgoods_img1,
       pickupgoods_img2: pickupgoods_img2,
       pickupgoods_img3: pickupgoods_img3,

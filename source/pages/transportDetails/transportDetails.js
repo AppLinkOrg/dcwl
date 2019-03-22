@@ -168,7 +168,7 @@ class Content extends AppBase {
       console.log(ret)
       if (ret.result == 'SUCCESS') {
         wx.redirectTo({
-          url: '/pages/uploadimg/uploadimg',
+          url: '/pages/uploadimg/uploadimg?id=' + this.Base.getMyData().id,
         })
 
         wx.showToast({
