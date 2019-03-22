@@ -167,14 +167,14 @@ class Content extends AppBase {
     quoteferryapi.uploadreceipt( data, (ret) => {
       console.log(ret)
       if (ret.result == 'SUCCESS') {
+        wx.redirectTo({
+          url: '/pages/orderList/orderList',
+        })
 
         wx.showToast({
           title: '货物成功送达',
           icon: 'success',
           duration: 1000
-        })
-        wx.redirectTo({
-          url: '/pages/orderList/orderList',
         })
       }
 

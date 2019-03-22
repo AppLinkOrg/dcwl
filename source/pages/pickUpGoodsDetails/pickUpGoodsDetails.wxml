@@ -25,16 +25,16 @@
       </view>
 
 
-      <view class='flex-row padding-bottom-30'>
+      <view class='flex-row padding-bottom-10'>
         <view class='margin-left'>
-          <view class='margin-10 txt-black f-32 flex-row height-50'>
-            <view class='txt-black f-32' style='width: 180rpx;'>车牌号：</view>{{datas.vehicle_plate_number}}</view>
+          <!-- <view class='margin-10 txt-black f-32 flex-row height-50'>
+            <view class='txt-black f-32' style='width: 180rpx;'>车牌号：</view>{{datas.vehicle_plate_number}}</view> -->
           <view class='margin-10 txt-black f-32 flex-row height-50'>
             <view class='txt-black f-32' style='width: 180rpx;'>接单时间：</view>{{datas.receipt_time}}</view>
         </view>
       </view>
 
-      <view class='flex-row padding-bottom-30'>
+      <view class='flex-row padding-bottom-10'>
         <view class='margin-left'>
           <view class='margin-10 txt-black f-32 flex-row height-50'>
             <view class='txt-black f-32' style='width: 180rpx;'>货主：</view>{{datas.realname}}</view>
@@ -58,16 +58,29 @@
         </view>
       </view>
 
+       <view class='flex-row margin-left' wx:for="{{datas.dispatch}}" wx:key="item">
+        <!-- <view class='' > -->
+        <view class='margin-10 txt-black f-32 flex-row height-50' >
+          <view class='txt-black f-32' style='width: 110rpx;'>司机：</view>
+          <view style='width: 180rpx; '>{{item.name}}</view>
+        </view>
+        <view class='margin-10 txt-black f-32 flex-row height-50'>
+          <view class='txt-black f-32' style='width: 110rpx;'>车辆：</view>
+          <view style='width: 180rpx;'>{{item.plate_number}}</view>
+        </view>
+        <!-- </view> -->
+      </view>
+
     </view>
 
-    <view class='flex-row flex-center margin-top'>
+    <!-- <view class='flex-row flex-center margin-top'>
       <view class=''>
         <image class='icon-30' src='{{uploadpath}}resource/song.png'></image>
       </view>
       <view class='flex-1 margin-left-20'>
         <input class='padding-10 txt-black h5' bindinput='getmileage' placeholder='请输入当前车辆行驶里程数' name='start_mileage' style='border-bottom:1rpx solid #e5e500;width:500rpx;'></input>
       </view>
-    </view>
+    </view> -->
   </view>
   <view class="flex-1"></view>
 </view>
@@ -178,6 +191,6 @@
 
 <view class='flex-center flex-row margin-bottom-40'>
   <view class="flex-1"></view>
-  <button class='bg-blue txt-white text-center margin-20 margin-top-60 f-36' bindtap='confirm' id='{{datas.id}}' style='width: 250rpx;'>确认取货</button>
+  <button class='bg-blue txt-white text-center margin-20 margin-top-20 f-36' bindtap='confirm' id='{{datas.id}}' style='width: 250rpx;'>确认取货</button>
   <view class="flex-1"></view>
 </view>

@@ -69,8 +69,8 @@
 
       <view class='flex-row'>
         <view class='margin-left'>
-          <view class='margin-10 txt-black f-32 flex-row height-50'>
-            <view class='txt-black f-32' style='width: 230rpx;'>车牌号：</view>{{item.vehicle_plate_number}}</view>
+          <!-- <view class='margin-10 txt-black f-32 flex-row height-50'>
+            <view class='txt-black f-32' style='width: 230rpx;'>车牌号：</view>{{item.vehicle_plate_number}}</view> -->
           <view class='margin-10 txt-black f-32 flex-row height-50'>
             <view class='txt-black f-32' style='width: 230rpx;'>要求取货时间：</view>{{item.user_pickupgoods_time}}</view>
         </view>
@@ -105,8 +105,8 @@
 
       <view class='flex-row'>
         <view class='margin-left'>
-          <view class='margin-10 txt-black f-32 flex-row height-50'>
-            <view class='txt-black f-32' style='width: 180rpx;'>车牌号：</view>{{item.vehicle_plate_number}}</view>
+          <!-- <view class='margin-10 txt-black f-32 flex-row height-50'>
+            <view class='txt-black f-32' style='width: 180rpx;'>车牌号：</view>{{item.vehicle_plate_number}}</view> -->
           <view class='margin-10 txt-black f-32 flex-row height-50' >
             <view class='txt-black f-32' style='width: 180rpx;'>接单时间：</view>2019-02-05 14:00</view>
           <view class='margin-10 txt-black f-32 flex-row height-50'>
@@ -122,7 +122,7 @@
 <view class="flex-row margin-top-20" wx:if="{{ctt==4}}">
   <view class="flex-1"></view>
   <view class=''>
-    <navigator class='content margin-20 ' url='../transportDetails/transportDetails?id={{item.id}}' wx:key wx:for='{{list_7}}'>
+    <navigator class='content margin-20 ' url='../uploadimg/uploadimg?id={{item.id}}' wx:key wx:for='{{list_7}}'>
       <view class='flex-row padding-top-20'>
         <image src='{{uploadpath}}resource/qu.png' class='icon-30 margin-10 margin-left'></image>
         <view>
@@ -140,14 +140,14 @@
 
       <view class='flex-row'>
         <view class='margin-left'>
-          <view class='margin-10 txt-black f-32 flex-row height-50'>
-            <view class='txt-black f-32' style='width: 180rpx;'>车牌号：</view>{{item.vehicle_plate_number}}</view>
+          <!-- <view class='margin-10 txt-black f-32 flex-row height-50'>
+            <view class='txt-black f-32' style='width: 180rpx;'>车牌号：</view>{{item.vehicle_plate_number}}</view> -->
           <view class='margin-10 txt-black f-32 flex-row height-50' >
-            <view class='txt-black f-32' style='width: 180rpx;'>接单时间：</view>{{}}</view>
+            <view class='txt-black f-32' style='width: 160rpx;'>接单时间：</view>{{item.receipt_time}}</view>
           <view class='margin-10 txt-black f-32 flex-row height-50'>
-            <view class='txt-black f-32' style='width: 180rpx;'>取货时间：</view>{{item.pickupgoods_time}}</view>
+            <view class='txt-black f-32' style='width: 160rpx;'>取货时间：</view>{{item.pickupgoods_time}}</view>
           <view class='margin-10 txt-black f-32 flex-row height-50'>
-            <view class='txt-black f-32' style='width: 180rpx;'>到货时间：</view>{{item.order_end_time}}</view>
+            <view class='txt-black f-32' style='width: 160rpx;'>到货时间：</view>{{item.order_end_time}}</view>
         </view>
       </view>
     </navigator>

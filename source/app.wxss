@@ -214,6 +214,10 @@ view, navigator, input, text, textarea {
   overflow: hidden; /* 内容超出宽度时隐藏超出部分的内容 */
 }
 
+.border-5{
+  border: 5rpx;
+}
+
 .h1 {
   font-size: 120rpx !important;
 }
@@ -453,6 +457,9 @@ button[disabled][type=primary] {
 .margin-40 {
   margin: 40rpx;
 }
+.margin-top-10{
+  margin-top: 10rpx;
+}
 
 .margin-top-20 {
   margin-top: 20rpx;
@@ -482,6 +489,9 @@ button[disabled][type=primary] {
 
 .margin-bottom-20 {
   margin-bottom: 20rpx;
+}
+.margin-bottom-30{
+  margin-bottom: 30rpx;
 }
 
 .margin-bottom-40 {
