@@ -1,6 +1,6 @@
 /* pages/uploadimg/uploadimg.wxss */
 .content {
-  width: 30%;
+  width: 90%;
   background-color: #fff;
 }
 
@@ -20,21 +20,14 @@
   margin-bottom: 10rpx;
 }
 
-.img-item image {
+.image {
   width: 180rpx;
   height: 180rpx;
+  border: 1rpx solid #d9d9d9;
+  margin-right: 20rpx;
 }
 
-.submit-btn {
-  width: 100%;
-  background-color: #fff;
-  height: 80rpx;
-  text-align: center;
-  line-height: 80rpx;
-  font-size: 30rpx;
-  position: fixed;
-  bottom: 100rpx;
-}
+
 
 .chooseimg {
   background-color: #fff;
@@ -87,7 +80,7 @@
 }
 
 .img-box {
-  /* width: 92%; */
+  width: 92%;
   margin: auto;
   padding-top: 20rpx;
 }

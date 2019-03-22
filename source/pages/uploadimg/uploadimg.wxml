@@ -1,16 +1,15 @@
 <!--pages/uploadimg/uploadimg.wxml-->
 <view class='margin-10 '>
-  <view class='f-32 bg-gray padding-10 border-5'>上传取货单:</view>
-  <view class='content flex-row'>
+  <view class='f-32 bg-gray padding-10 '>上传取货单:</view>
+  <view class='flex-row'>
     <view class='flex-1'></view>
     <view class='img-box'>
-      <view class='flex-row' >
-        <block wx:for="{{images}}" wx:key="index">
-          <view class=''>
-            <image src='{{uploadpath}}photo/{{item}}' bindlongpress="bindlongpressimg" id='{{index}}' style='width:156rpx;height:156rpx' mode='aspectFill'></image>
-          </view>
-        </block>
-        <view class='chooseimg' bindtap='uploadimg'>
+      <view class='img-list'>
+        <view class='' wx:for="{{images1}}" wx:key="index">
+          <image src='{{uploadpath}}quoteferry/{{item}}' bindlongpress="bindlongpressimg1" id='{{index}}' class='image' mode='aspectFill'></image>
+        </view>
+
+        <view class='chooseimg' bindtap='uploadimg1' wx:if="{{images1.length<6}}">
           <view class="weui-uploader__input-box"></view>
         </view>
       </view>
@@ -27,16 +26,15 @@
 
 <view class='margin-10 '>
   <view class='f-32 bg-gray padding-10 border-5'>上传过磅单:</view>
-  <view class='content flex-row'>
+  <view class='flex-row'>
     <view class='flex-1'></view>
     <view class='img-box'>
       <view class='img-list'>
-        <block wx:for="{{detailPics}}" wx:key="index">
-          <view class='img-item'>
-            <image src='{{item}}' bindlongpress="bindlongpressimg" data-id='{{index}}'></image>
-          </view>
-        </block>
-        <view class='chooseimg' bindtap='uploadDetailImage'>
+        <view class='' wx:for="{{images2}}" wx:key="index">
+          <image src='{{uploadpath}}quoteferry/{{item}}' bindlongpress="bindlongpressimg2" id='{{index}}' class='image' mode='aspectFill'></image>
+        </view>
+
+        <view class='chooseimg' bindtap='uploadimg2' wx:if="{{images2.length<6}}">
           <view class="weui-uploader__input-box"></view>
         </view>
       </view>
@@ -53,16 +51,15 @@
 
 <view class='margin-10 '>
   <view class='f-32 bg-gray padding-10 border-5'>上传货物图片:</view>
-  <view class='content flex-row'>
+  <view class='flex-row'>
     <view class='flex-1'></view>
     <view class='img-box'>
       <view class='img-list'>
-        <block wx:for="{{detailPics}}" wx:key="index">
-          <view class='img-item'>
-            <image src='{{item}}' bindlongpress="bindlongpressimg" data-id='{{index}}'></image>
-          </view>
-        </block>
-        <view class='chooseimg' bindtap='uploadDetailImage'>
+        <view class='' wx:for="{{images3}}" wx:key="index">
+          <image src='{{uploadpath}}quoteferry/{{item}}' bindlongpress="bindlongpressimg3" id='{{index}}' class='image' mode='aspectFill'></image>
+        </view>
+
+        <view class='chooseimg' bindtap='uploadimg3' wx:if="{{images3.length<6}}">
           <view class="weui-uploader__input-box"></view>
         </view>
       </view>
@@ -75,4 +72,11 @@
     </view>
     <view class='flex-1'></view>
   </view>
+</view>
+
+
+<view class='flex-center flex-row margin-bottom-40 '>
+  <view class="flex-1"></view>
+  <button class='bg-blue txt-white text-center margin-20 f-36' bindtap='confirm' id='{{datas.id}}' style='width: 250rpx;'>确定提交</button>
+  <view class="flex-1"></view>
 </view>

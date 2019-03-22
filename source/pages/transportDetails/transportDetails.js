@@ -168,7 +168,7 @@ class Content extends AppBase {
       console.log(ret)
       if (ret.result == 'SUCCESS') {
         wx.redirectTo({
-          url: '/pages/orderList/orderList',
+          url: '/pages/uploadimg/uploadimg',
         })
 
         wx.showToast({
