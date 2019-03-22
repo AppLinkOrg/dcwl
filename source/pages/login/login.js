@@ -18,6 +18,11 @@ class Content extends AppBase {
     var that = this;
   }
 
+  getPhone(e){
+    console.log(e)
+    this.Base.setMyData({ mobile: e.detail.mobile });
+  }
+
   phonenoCallback(phoneno, e) {
     console.log(phoneno);
     this.Base.setMyData({ mobile: phoneno });
@@ -44,7 +49,7 @@ class Content extends AppBase {
       console.log(ret)
       if (ret.code == 0) {
         api.info({}, (res) => {
-          if (res.userrole_id == 1 && res.name == name) {
+          if (res.driver == 1 && res.name == name) {
             wx.reLaunch({
               url: '/pages/home/home',
             })
@@ -64,4 +69,5 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.confirm = content.confirm;
+body.getPhone = content.getPhone;
 Page(body)

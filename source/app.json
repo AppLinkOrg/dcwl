@@ -9,7 +9,8 @@
     "pages/transportDetails/transportDetails",
     "pages/my/my",
     "pages/orderList/orderList",
-    "pages/count/count"
+    "pages/count/count",
+    "pages/uploadimg/uploadimg"
   ],
   "permission": {
     "scope.userLocation": {

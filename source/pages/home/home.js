@@ -16,6 +16,7 @@ class Content extends AppBase {
     this.Base.setMyData({
       ctt: 1
     })
+    // console.log(encodeURIComponent('你好'))
 
   }
 
@@ -28,6 +29,7 @@ class Content extends AppBase {
 
     var memberApi = new MemberApi();
     memberApi.info({}, (ret) => {
+      
       // that.Base.setMyData({ mobile: ret.mobile });
       // console.log(that.Base.getMyData().mobile)
       var quoteferryapi = new QuoteferryApi();
@@ -40,11 +42,19 @@ class Content extends AppBase {
       quoteferryapi.listdriver({ status: 6, mobile: ret.mobile }, (ret) => {
         this.Base.setMyData({ list_6: ret });
       });
+
+      quoteferryapi.listdriver({ status: 7, mobile: ret.mobile }, (ret) => {
+        this.Base.setMyData({ list_7: ret });
+      });
     })
     
 
     
 
+  }
+  bindupload(e){
+    this.Base.setMyData({ ctt: 4 })
+    this.onMyShow();
   }
 
   bindcompleted(e) {
@@ -80,7 +90,8 @@ var body = content.generateBodyJson();
 body.onLoad = content.onLoad;
 body.onMyShow = content.onMyShow;
 body.bindcompleted = content.bindcompleted;
-body.bindwaitcompleted = content.bindwaitcompleted;
+body.bindwaitcompleted = content.bindwaitcompleted; 
+body.bindupload = content.bindupload;
 body.bindcontact = content.bindcontact;
 body.todetails = content.todetails;
 body.tocontent = content.tocontent;

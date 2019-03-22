@@ -15,7 +15,7 @@
         <view>
           <view class='margin-10 f-36 flex-1' style='color: #000;'>{{datas.end_address}}</view>
           <view class='margin-10 flex-1' style='color: #858A96;'>{{datas.e_address_details}}</view>
-          <view class='margin-10 flex-1' style='color: #858A96;'>{{datas.end_address}}</view>
+          <!-- <view class='margin-10 flex-1' style='color: #858A96;'>{{datas.end_address}}</view> -->
         </view>
       </view>
 
@@ -27,6 +27,31 @@
             <view class='txt-black f-32' style='width: 230rpx;'>要求取货时间：</view>{{datas.user_pickupgoods_time}}</view>
         </view>
       </view>
+
+      <view class='flex-row padding-bottom-30'>
+        <view class='margin-left'>
+          <view class='margin-10 txt-black f-32 flex-row height-50'>
+            <view class='txt-black f-32' style='width: 180rpx;'>货主：</view>{{datas.realname}}</view>
+          <view class='flex-row '>
+            <view class='margin-10 txt-black f-32 flex-row height-50' style='width: 580rpx;'>
+              <view class='txt-black f-32' style='width: 180rpx;'>联系方式：</view>{{datas.mobile}}
+            </view>
+            
+            <image src='{{uploadpath}}resource/phone2.png' bindtap='phoneCall' id="{{datas.mobile}}" class='icon-30 margin-10 margin-right-40'></image>
+          </view>
+
+        </view>
+      </view>
+
+      <view class='flex-row padding-bottom-30'>
+        <view class='margin-left'>
+          <view class='margin-10 txt-black f-32 flex-row height-50'>
+            <view class='txt-black f-32' style='width: 180rpx;'>货物：</view>{{datas.goodsstr}}</view>
+          <view class='margin-10 txt-black f-32 flex-row height-50'>
+            <view class='txt-black f-32' style='width: 180rpx;'>重量：</view>{{datas.weight}}</view>
+        </view>
+      </view>
+
     </view>
   </view>
   <view class="flex-1"></view>

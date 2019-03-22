@@ -349,6 +349,7 @@ export class AppBase {
     })
   }
   viewGallary(modul, photos, current = "") {
+    
     var nphotos = [];
     for (var i = 0; i < photos.length; i++) {
       nphotos.push(ApiConfig.GetUploadPath() + modul + "/" + photos[i]);

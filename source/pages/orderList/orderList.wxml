@@ -2,17 +2,18 @@
   <view class="flex-1"></view>
   <view class=''>
     <navigator class='content margin-20 ' url='../details/details?id={{item.id}}' wx:key wx:for='{{list}}'>
-      <view class='flex-row padding-left-40 height-100 flex-center'>
-        <view class='padding-top-10'>
-          <view class='f-32 txt-black height-50'>运单号：{{item.orderno}}</view>
-          <view class='f-32 txt-black height-50'>订单时间：{{item.submit_time}}</view>
+      <view class='flex-row padding-left-40 height-150 flex-center'>
+        <view class=''>
+          <view class='f-32 txt-black height-50 padding-top-20'>运单号：{{item.orderno}}</view>
+          <view class='f-32 txt-black height-50 margin-top-10'>订单时间：{{item.submit_time}}</view>
         </view>
 
         <view class="flex-1"></view>
         <view class='f-32 txt-blue txt-bold margin-right-40' wx:if='{{item.status==4}}'>待取货</view>
         <view class='f-32 txt-blue txt-bold margin-right-40' wx:if='{{item.status==5}}'>运输中</view>
         <view class='f-32 txt-blue txt-bold margin-right-40' wx:if='{{item.status==6}}'>运输中</view>
-        <view class='f-32 txt-blue txt-bold margin-right-40' wx:if='{{item.status==7}}'>已完成</view>
+        <view class='f-32 txt-blue txt-bold margin-right-40' wx:if='{{item.status==7}}'>待上传</view>
+        <view class='f-32 txt-blue txt-bold margin-right-40' wx:if='{{item.status==8}}'>已完成</view>
       </view>
       <view class='flex-row padding-top-20'>
         <image src='{{uploadpath}}resource/qu.png' class='icon-30 margin-10 margin-left'></image>

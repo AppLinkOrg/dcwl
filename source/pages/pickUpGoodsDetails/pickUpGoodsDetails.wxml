@@ -6,7 +6,7 @@
 
       <view class='flex-row padding-top-20'>
         <image src='{{uploadpath}}resource/qu.png' class='icon-30 margin-10 margin-left'></image>
-        <view>
+        <view style='width: 500rpx;'>
           <view class='margin-10 f-36 flex-1' style='color: #000;'>{{datas.start_address}}</view>
           <view class='margin-10 flex-1' style='color: #858A96;'>{{datas.s_address_details}}</view>
         </view>
@@ -16,13 +16,14 @@
 
       <view class='flex-row'>
         <image src='{{uploadpath}}resource/song.png' class='icon-30 margin-10 margin-left'></image>
-        <view>
+        <view style='width: 500rpx;'>
           <view class='margin-10 f-36 flex-1' style='color: #000;'>{{datas.end_address}}</view>
           <view class='margin-10 flex-1' style='color: #858A96;'>{{datas.e_address_details}}</view>
         </view>
         <view class="flex-1"></view>
         <image src='{{uploadpath}}resource/mapp.png' bindtap='openMap' id="{{datas.e_address_details}}" class='icon-30 margin-10 margin-right-40'></image>
       </view>
+
 
       <view class='flex-row padding-bottom-30'>
         <view class='margin-left'>
@@ -33,6 +34,30 @@
         </view>
       </view>
 
+      <view class='flex-row padding-bottom-30'>
+        <view class='margin-left'>
+          <view class='margin-10 txt-black f-32 flex-row height-50'>
+            <view class='txt-black f-32' style='width: 180rpx;'>货主：</view>{{datas.realname}}</view>
+          <view class='flex-row '>
+            <view class='margin-10 txt-black f-32 flex-row height-50' style='width: 580rpx;'>
+              <view class='txt-black f-32' style='width: 180rpx;'>联系方式：</view>{{datas.mobile}}
+            </view>
+            
+            <image src='{{uploadpath}}resource/phone2.png' bindtap='phoneCall' id="{{datas.mobile}}" class='icon-30 margin-10 margin-right-40'></image>
+          </view>
+
+        </view>
+      </view>
+
+      <view class='flex-row padding-bottom-30'>
+        <view class='margin-left'>
+          <view class='margin-10 txt-black f-32 flex-row height-50'>
+            <view class='txt-black f-32' style='width: 180rpx;'>货物：</view>{{datas.goodsstr}}</view>
+          <view class='margin-10 txt-black f-32 flex-row height-50'>
+            <view class='txt-black f-32' style='width: 180rpx;'>重量：</view>{{datas.weight}}</view>
+        </view>
+      </view>
+
     </view>
 
     <view class='flex-row flex-center margin-top'>
@@ -40,17 +65,18 @@
         <image class='icon-30' src='{{uploadpath}}resource/song.png'></image>
       </view>
       <view class='flex-1 margin-left-20'>
-        <input class='padding-10 txt-black h5' placeholder='请输入当前车辆行驶里程数' name='name' style='border-bottom:1rpx solid #e5e500;width:500rpx;'></input>
+        <input class='padding-10 txt-black h5' bindinput='getmileage' placeholder='请输入当前车辆行驶里程数' name='start_mileage' style='border-bottom:1rpx solid #e5e500;width:500rpx;'></input>
       </view>
     </view>
   </view>
   <view class="flex-1"></view>
 </view>
-<view class=' flex-row margin-top-60'>
+
+<!-- <view class=' flex-row margin-top-60'>
   <view class="flex-1"></view>
   <image src='{{uploadpath}}photo/{{photo}}' mode='aspectFit' wx:if='{{photo}}' style='width: 500rpx;height: 300rpx;'></image>
   <view class='upload_img radius-10' wx:else>
-    <view class='flex-center flex-row' bindtap='uploadimg'>
+    <view class='flex-center flex-row' bindtap='uploadimg1'>
       <view class="flex-1"></view>
       <image src='{{uploadpath}}resource/jiahao.png' class='icon-60  margin-top-60'></image>
       <view class="flex-1"></view>
@@ -58,7 +84,98 @@
     <view class='text-center txt-black margin-top-30'>上传取货单</view>
   </view>
   <view class="flex-1"></view>
+</view> -->
+
+<!-- <view class='flex-row '>
+  <view class=' flex-row margin-top-60 margin-10'>
+    <view class="flex-1"></view>
+    <image src='{{uploadpath}}photo/{{start_mileage_img}}' mode='aspectFit' wx:if='{{start_mileage_img}}' style='width: 300rpx;height: 200rpx;'></image>
+    <view class='upload_img radius-10' style='width: 300rpx;height: 200rpx;' wx:if='{{!start_mileage_img}}'>
+      <view class='flex-center flex-row' bindtap='uploadimg2'>
+        <view class="flex-1"></view>
+        <image src='{{uploadpath}}resource/jiahao.png' class='icon-40  margin-top'></image>
+        <view class="flex-1"></view>
+      </view>
+      <view class='text-center txt-black margin-top-30'>车辆里程数图片</view>
+    </view>
+    <view class="flex-1"></view>
+  </view>
+
+  <view class=' flex-row margin-top-60 margin-10'>
+    <view class="flex-1"></view>
+    <image src='{{uploadpath}}photo/{{vehicle_img}}' mode='aspectFit' wx:if='{{vehicle_img}}' style='width: 300rpx;height: 200rpx;'></image>
+    <view class='upload_img radius-10' style='width: 300rpx;height: 200rpx;' wx:else>
+      <view class='flex-center flex-row' bindtap='uploadimg3'>
+        <view class="flex-1"></view>
+        <image src='{{uploadpath}}resource/jiahao.png' class='icon-40  margin-top'></image>
+        <view class="flex-1"></view>
+      </view>
+      <view class='text-center txt-black margin-top-30'>上传车辆图片</view>
+    </view>
+    <view class="flex-1"></view>
+  </view>
+
+  <view class=' flex-row margin-top-60 margin-10'>
+    <view class="flex-1"></view>
+    <image src='{{uploadpath}}photo/{{goods_img1}}' mode='aspectFit' wx:if='{{goods_img1}}' style='width: 300rpx;height: 200rpx;'></image>
+    <view class='upload_img radius-10' style='width: 300rpx;height: 200rpx;' wx:else>
+      <view class='flex-center flex-row' bindtap='uploadimg4'>
+        <view class="flex-1"></view>
+        <image src='{{uploadpath}}resource/jiahao.png' class='icon-40  margin-top'></image>
+        <view class="flex-1"></view>
+      </view>
+      <view class='text-center txt-black margin-top-30'>上传货物图片</view>
+    </view>
+    <view class="flex-1"></view>
+  </view>
 </view>
+
+<view class='flex-row '>
+  <view class=' flex-row margin-top-60 margin-10'>
+    <view class="flex-1"></view>
+    <image src='{{uploadpath}}photo/{{goods_img2}}' mode='aspectFit' wx:if='{{goods_img2}}' style='width: 300rpx;height: 200rpx;'></image>
+    <view class='upload_img radius-10' style='width: 300rpx;height: 200rpx;' wx:else>
+      <view class='flex-center flex-row' bindtap='uploadimg5'>
+        <view class="flex-1"></view>
+        <image src='{{uploadpath}}resource/jiahao.png' class='icon-40  margin-top'></image>
+        <view class="flex-1"></view>
+      </view>
+      <view class='text-center txt-black margin-top-30'>上传货物图片</view>
+    </view>
+    <view class="flex-1"></view>
+  </view>
+
+  <view class=' flex-row margin-top-60 margin-10'>
+    <view class="flex-1"></view>
+    <image src='{{uploadpath}}photo/{{goods_img3}}' mode='aspectFit' wx:if='{{goods_img3}}' style='width: 300rpx;height: 200rpx;'></image>
+    <view class='upload_img radius-10' style='width: 300rpx;height: 200rpx;' wx:else>
+      <view class='flex-center flex-row' bindtap='uploadimg6'>
+        <view class="flex-1"></view>
+        <image src='{{uploadpath}}resource/jiahao.png' class='icon-40  margin-top'></image>
+        <view class="flex-1"></view>
+      </view>
+      <view class='text-center txt-black margin-top-30'>上传货物图片</view>
+    </view>
+    <view class="flex-1"></view>
+  </view>
+
+  <view class=' flex-row margin-top-60 margin-10'>
+    <view class="flex-1"></view>
+    <image src='{{uploadpath}}photo/{{goods_img4}}' mode='aspectFit' wx:if='{{goods_img4}}' style='width: 300rpx;height: 200rpx;'></image>
+    <view class='upload_img radius-10' style='width: 300rpx;height: 200rpx;' wx:else>
+      <view class='flex-center flex-row' bindtap='uploadimg7'>
+        <view class="flex-1"></view>
+        <image src='{{uploadpath}}resource/jiahao.png' class='icon-40  margin-top'></image>
+        <view class="flex-1"></view>
+      </view>
+      <view class='text-center txt-black margin-top-30'>上传货物图片</view>
+    </view>
+    <view class="flex-1"></view>
+  </view>
+</view> -->
+
+
+
 <view class='flex-center flex-row margin-bottom-40'>
   <view class="flex-1"></view>
   <button class='bg-blue txt-white text-center margin-20 margin-top-60 f-36' bindtap='confirm' id='{{datas.id}}' style='width: 250rpx;'>确认取货</button>
