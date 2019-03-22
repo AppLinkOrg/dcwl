@@ -42,7 +42,7 @@
             <view class='margin-10 txt-black f-32 flex-row height-50' style='width: 580rpx;'>
               <view class='txt-black f-32' style='width: 180rpx;'>联系方式：</view>{{datas.mobile}}
             </view>
-            
+
             <image src='{{uploadpath}}resource/phone2.png' bindtap='phoneCall' id="{{datas.mobile}}" class='icon-30 margin-10 margin-right-40'></image>
           </view>
 
@@ -58,9 +58,8 @@
         </view>
       </view>
 
-       <view class='flex-row margin-left' wx:for="{{datas.dispatch}}" wx:key="item">
-        <!-- <view class='' > -->
-        <view class='margin-10 txt-black f-32 flex-row height-50' >
+      <view class='flex-row margin-left' wx:for="{{datas.dispatch}}" wx:key="item">
+        <view class='margin-10 txt-black f-32 flex-row height-50'>
           <view class='txt-black f-32' style='width: 110rpx;'>司机：</view>
           <view style='width: 180rpx; '>{{item.name}}</view>
         </view>
@@ -68,7 +67,6 @@
           <view class='txt-black f-32' style='width: 110rpx;'>车辆：</view>
           <view style='width: 180rpx;'>{{item.plate_number}}</view>
         </view>
-        <!-- </view> -->
       </view>
 
     </view>

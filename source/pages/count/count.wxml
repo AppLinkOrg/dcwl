@@ -8,7 +8,7 @@
         <view class='flex-row'>
           <view class='h2 txt-black month flex-center flex-row'>{{item.month}}月</view>
           <view class='margin-left-30 '>
-            <view class='txt-black height-70 flex-center flex-row'>总运输路程：{{item.totaldistance}}km</view>
+            <!-- <view class='txt-black height-70 flex-center flex-row'>总运输路程：{{item.totaldistance}}km</view> -->
             <!-- <view class='txt-black height-70 flex-center flex-row'>总订单数：{{item.count}}单</view> -->
             <view class='txt-black height-70 flex-center flex-row'>总运输时间：{{item.totalduration}}小时</view>
           </view>
