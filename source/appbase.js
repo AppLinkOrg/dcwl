@@ -104,9 +104,6 @@ export class AppBase {
       checkPermission: base.checkPermission,
       recorderManager: base.recorderManager,
       backtotop: base.backtotop
-
-
-
     }
   }
   log() {
@@ -254,7 +251,9 @@ export class AppBase {
   checkPermission() {
     var memberapi = new MemberApi();
     var that = this;
-    memberapi.info({}, (info) => {
+    var mobile = AppBase.UserInfo.mobile;
+    var name = AppBase.UserInfo.name;
+    memberapi.info({ mobile: mobile, name: name }, (info) => {
       console.log("info tt");
       console.log(info);
       console.log(info);
