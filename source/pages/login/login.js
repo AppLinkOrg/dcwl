@@ -52,12 +52,13 @@ class Content extends AppBase {
     AppBase.UserInfo.name = name;
     var openid = AppBase.UserInfo.openid;
     var session_key = AppBase.UserInfo.session_key;
+    var usertype='司机'
     var api = new MemberApi();
-    
     api.register({ mobile, name, openid, session_key }, (ret) => {
       console.log(ret)
       if (ret.code == 0) {
-        api.info({ mobile, name}, (res) => {
+        api.info({ mobile, name, usertype}, (res) => {
+          AppBase.UserInfo.userinfo = res;
           if (res.driver == 1 && res.name == name) {
             wx.reLaunch({
               url: '/pages/home/home',

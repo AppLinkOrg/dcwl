@@ -28,7 +28,9 @@ class Content extends AppBase {
     var that = this;
 
     var memberApi = new MemberApi();
-    memberApi.info({}, (ret) => {
+    var mobile = AppBase.UserInfo.mobile;
+    var name = AppBase.UserInfo.name;
+    memberApi.info({ mobile: mobile, name: name }, (ret) => {
       
       // that.Base.setMyData({ mobile: ret.mobile });
       // console.log(that.Base.getMyData().mobile)
