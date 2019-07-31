@@ -200,6 +200,10 @@ export class AppBase {
 
                 });
 
+
+                
+
+
                 //that.Base.getAddress();
               });
             },

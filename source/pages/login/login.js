@@ -58,6 +58,9 @@ class Content extends AppBase {
       console.log(ret)
       if (ret.code == 0) {
         api.info({ mobile, name, usertype}, (res) => {
+
+          console.log(res,'智障');
+
           AppBase.UserInfo.userinfo = res;
           if (res.driver == 1 && res.name == name) {
             wx.reLaunch({
