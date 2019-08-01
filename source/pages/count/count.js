@@ -20,15 +20,16 @@ class Content extends AppBase {
   onMyShow() {
     var that = this;
     var memberApi = new MemberApi();
-    memberApi.info({}, (res) => {
+    var memberinfo = this.Base.getMyData().memberinfo;
+   // memberApi.info({}, (res) => {
 
       var vorderApi = new VorderApi();
-      vorderApi.list1({ mobile: '15077545371' }, (res) => {
+    vorderApi.list1({ mobile: memberinfo.mobile}, (res) => {
         console.log(res)
         that.Base.setMyData({ list: res });
       })
 
-    })
+    // })
   }
 
   logistics(e) {

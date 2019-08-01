@@ -25,22 +25,23 @@ class Content extends AppBase {
     // })
     var that = this;
     var memberApi = new MemberApi();
-    memberApi.info({}, (ret) => {
+
+    var memberinfo = this.Base.getMyData().memberinfo;
+
       var quoteferryapi = new QuoteferryApi();
       var submit_time= that.Base.getMyData().month;
       if (submit_time){
-        quoteferryapi.listdriver({ mobile: ret.mobile, submit_time: submit_time }, (ret) => {
+        quoteferryapi.listdriver({ mobile: memberinfo.mobile, submit_time: submit_time }, (ret) => {
           console.log(ret)
           this.Base.setMyData({ list: ret });
         });
       }else{
-        quoteferryapi.listdriver({ mobile: ret.mobile }, (ret) => {
+        quoteferryapi.listdriver({ mobile: memberinfo.mobile }, (ret) => {
           console.log(ret)
           this.Base.setMyData({ list: ret });
         });
       }
-      
-    })
+
     
   
   }

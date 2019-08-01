@@ -20,7 +20,7 @@ page {
   font-size: unset;
   text-align: unset;
   line-height: unset;
-  background-color: transparent;
+  /* background-color: transparent; */
   border: 0rpx red solid;
   border-color: red;
 }
@@ -278,11 +278,11 @@ button {
 
 button.button-hover {
   background-color: #fcfcfc;
-  border-color: #2699ec;
+  border-color: #e73339;
 }
 
 button[type=primary] {
-  background-color: #2699ec;
+  background-color: #e51c23;
 }
 
 button[type=bak_ble] {
@@ -290,7 +290,7 @@ button[type=bak_ble] {
 }
 
 button.button-hover[type=primary] {
-  background-color: rgba(0, 162, 231, 0.856);
+  background-color: #e73339;
 }
 
 button[disabled][type=primary] {
@@ -722,6 +722,15 @@ button[disabled][type=primary] {
 }
 
 .clear-button {
+  padding: 0rpx;
+  font-size: unset;
+  text-align: unset;
+  line-height: unset;
+  background-color: transparent;
+  border: 0rpx red solid;
+  border-color: red;
+}
+.clear-button2 {
   padding: 0rpx;
   font-size: unset;
   text-align: unset;

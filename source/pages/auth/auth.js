@@ -32,7 +32,7 @@ class Content extends AppBase {
 
   getUserInfo(e) {
     console.log(666666666);
-    wx.switchTab({
+    wx.reLaunch({
       url: '/pages/home/home',
     });
     //open-type="getUserInfo" bindgetuserinfo="getUserInfo"

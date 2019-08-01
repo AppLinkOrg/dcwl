@@ -1,3 +1,4 @@
+
 /****
 import { MemberApi } from "../apis/member.api";
 import { WechatApi } from "../apis/wechat.api";
@@ -104,6 +105,7 @@ export class AppBase {
       checkPermission: base.checkPermission,
       recorderManager: base.recorderManager,
       backtotop: base.backtotop
+
     }
   }
   log() {
@@ -200,10 +202,6 @@ export class AppBase {
 
                 });
 
-
-                
-
-
                 //that.Base.getAddress();
               });
             },
@@ -219,19 +217,19 @@ export class AppBase {
                 AppBase.UserInfo.session_key = data.session_key;
                 console.log(AppBase.UserInfo);
                 ApiConfig.SetToken(data.openid);
-                memberapi.update(AppBase.UserInfo, () => {
-
-                  console.log(AppBase.UserInfo);
-                  that.Base.setMyData({ UserInfo: AppBase.UserInfo });
-
-                  that.checkPermission();
-
-                });
                 console.log("goto update info");
 
-              
+
+                //that.Base.gotoOpenUserInfoSetting();
+                if (this.Base.needauth == true) {
+                  wx.redirectTo({
+                    url: '/pages/auth/auth',
+                  })
+                } else {
+                  that.onMyShow();
+                }
               });
-              
+              //that.getAddress();
             }
           });
 
@@ -255,24 +253,10 @@ export class AppBase {
   checkPermission() {
     var memberapi = new MemberApi();
     var that = this;
-    var mobile = AppBase.UserInfo.mobile;
-    var name = AppBase.UserInfo.name;
-    memberapi.info({ mobile: mobile, name: name }, (info) => {
-      console.log("info tt");
-      console.log(info);
-      console.log(info);
-      console.log(info);
-      console.log(info);
-      if (info != null
-        && (info.mobile == undefined || info.mobile == "")
-        && this.Base.needauth == true) {
-        wx.reLaunch({
-          url: '/pages/login/login',
-        })
-      } else {
-        this.Base.setMyData({ memberinfo: info });
-        that.onMyShow();
-      }
+    memberapi.info({}, (info) => {
+
+      this.Base.setMyData({ memberinfo: info });
+      that.onMyShow();
 
     });
   }
@@ -324,18 +308,51 @@ export class AppBase {
   getMyData() {
     return this.Page.data;
   }
+  // getPhoneNo(e) {
+  //   var that = this;
+  //   console.log(e);
+  //   var api = new WechatApi();
+  //   var data = this.Base.getMyData();
+  //   console.log("aaa?");
+
+  //   e.detail.session_key = AppBase.UserInfo.session_key;
+  //   e.detail.openid = AppBase.UserInfo.openid;
+  //   console.log(e.detail);
+  //   api.decrypteddata(e.detail, (ret) => {
+  //     console.log(ret);
+  //     that.phonenoCallback(ret.return.phoneNumber, e);
+  //   });
+  // }
+
   getPhoneNo(e) {
     var that = this;
-    console.log(e);
+    console.log("vck", e);
     var api = new WechatApi();
+    var memberapi = new MemberApi();
     var data = this.Base.getMyData();
-    console.log("aaa?");
+
+    var memberinfo = this.Base.getMyData().memberinfo;
+
+    console.log(memberinfo, "嘎嘎嘎");
 
     e.detail.session_key = AppBase.UserInfo.session_key;
     e.detail.openid = AppBase.UserInfo.openid;
+
+    console.log(memberinfo, "哦哦哦");
+
     console.log(e.detail);
     api.decrypteddata(e.detail, (ret) => {
-      console.log(ret);
+      console.log(ret.return.phoneNumber, "看看");
+      if (ret.return.phoneNumber != undefined || ret.return.phoneNumber!=null){
+        memberapi.updatemobile({
+          member_id: memberinfo.id,
+          mobile: ret.return.phoneNumber
+        }, (updatemobile) => {
+          this.Base.setMyData({ updatemobile })
+          that.checkPermission();
+        })
+       }
+     
       that.phonenoCallback(ret.return.phoneNumber, e);
     });
   }
@@ -352,7 +369,6 @@ export class AppBase {
     })
   }
   viewGallary(modul, photos, current = "") {
-    
     var nphotos = [];
     for (var i = 0; i < photos.length; i++) {
       nphotos.push(ApiConfig.GetUploadPath() + modul + "/" + photos[i]);
@@ -496,7 +512,7 @@ export class AppBase {
     });
   }
 
-  uploadImage(modul, callback, completecallback, count) {
+  uploadImage(modul, callback, count = 1, completecallback) {
     wx.chooseImage({
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
@@ -524,7 +540,7 @@ export class AppBase {
               if (data.substr(0, 7) == "success") {
                 data = data.split("|");
                 var photo = data[2];
-                callback(photo, i);
+                callback(photo);
               } else {
                 console.error(res.data);
                 wx.showToast({

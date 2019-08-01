@@ -457,7 +457,7 @@ export class QuoteferryApi{
         })
     }
 
-    uploadreceipt(json, callback, showLoading = true) {
+    uploadimg(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -466,7 +466,7 @@ export class QuoteferryApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'quoteferry/uploadreceipt',
+            url: ApiConfig.GetApiUrl() + 'quoteferry/uploadimg',
             data: json,
             method: 'POST',
             dataType: 'json',
@@ -489,7 +489,7 @@ export class QuoteferryApi{
         })
     }
 
-    uploadimg(json, callback, showLoading = true) {
+    uploadreceipt(json, callback, showLoading = true) {
 
         if (showLoading)
             ApiConfig.ShowLoading();
@@ -498,7 +498,7 @@ export class QuoteferryApi{
         console.log(header);
         console.log(json);
         wx.request({
-            url: ApiConfig.GetApiUrl() + 'quoteferry/uploadimg',
+            url: ApiConfig.GetApiUrl() + 'quoteferry/uploadreceipt',
             data: json,
             method: 'POST',
             dataType: 'json',

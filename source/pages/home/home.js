@@ -26,29 +26,43 @@ class Content extends AppBase {
     //   mask: true
     // })
     var that = this;
+    
+    var memberinfo=this.Base.getMyData().memberinfo;
 
-    var memberApi = new MemberApi();
-    var mobile = AppBase.UserInfo.mobile;
-    var name = AppBase.UserInfo.name;
-    memberApi.info({ mobile: mobile, name: name }, (ret) => {
+    if (memberinfo.mobile == "" || memberinfo.mobile == undefined){
+      wx.showModal({
+        title: '提示',
+        content: '您暂未获取手机号无法查看运输单,请前往个人中心获取',
+        showCancel: false,
+        cancelText: '取消',
+        cancelColor: '#EE2222',
+        confirmText: '确定',
+        confirmColor: '#e73339',
+        success: function (res) {
+          if (res.confirm) {
+           
+          }
+        }
+      });
+    }
+
+
       
-      // that.Base.setMyData({ mobile: ret.mobile });
-      // console.log(that.Base.getMyData().mobile)
       var quoteferryapi = new QuoteferryApi();
-      quoteferryapi.listdriver({ status: 4, mobile: ret.mobile }, (ret) => {
+    quoteferryapi.listdriver({ status: 4, mobile: memberinfo.mobile }, (ret) => {
         this.Base.setMyData({ list_4: ret });
       });
-      quoteferryapi.listdriver({ status: 5, mobile: ret.mobile }, (ret) => {
+    quoteferryapi.listdriver({ status: 5, mobile: memberinfo.mobile }, (ret) => {
         this.Base.setMyData({ list_5: ret });
       });
-      quoteferryapi.listdriver({ status: 6, mobile: ret.mobile }, (ret) => {
+    quoteferryapi.listdriver({ status: 6, mobile: memberinfo.mobile }, (ret) => {
         this.Base.setMyData({ list_6: ret });
       });
 
-      quoteferryapi.listdriver({ status: 7, mobile: ret.mobile }, (ret) => {
+    quoteferryapi.listdriver({ status: 7, mobile: memberinfo.mobile }, (ret) => {
         this.Base.setMyData({ list_7: ret });
       });
-    })
+
     
 
     

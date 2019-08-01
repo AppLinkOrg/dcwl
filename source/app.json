@@ -1,13 +1,13 @@
 {
   "pages": [
     "pages/home/home",
+    "pages/my/my",
     "pages/auth/auth",
     "pages/login/login",
     "pages/details/details",
     "pages/receiptDetails/receiptDetails",
     "pages/pickUpGoodsDetails/pickUpGoodsDetails",
     "pages/transportDetails/transportDetails",
-    "pages/my/my",
     "pages/orderList/orderList",
     "pages/count/count",
     "pages/uploadimg/uploadimg"
